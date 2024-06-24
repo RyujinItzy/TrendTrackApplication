@@ -16,6 +16,7 @@ namespace TrendTrackApplication.Admin_User_Control
     public partial class AdminProduct : UserControl
     {
         private readonly SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\visual studio c#\TrendTrackApplication\TrendTrackApplication\TrendDB.mdf"";Integrated Security=True");
+        private readonly string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\visual studio c#\TrendTrackApplication\TrendTrackApplication\TrendDB.mdf"";Integrated Security=True";
         private int currentPage = 1;
         private int totalPages = 1;
         private int itemsPerPage = 20;
@@ -31,6 +32,7 @@ namespace TrendTrackApplication.Admin_User_Control
             AddProductForm addProductForm = new AddProductForm();
             addProductForm.ShowDialog();
             DisplayAllProductsData();
+            LogActivity("Added a new product");
         }
 
         private void btn_products_update_Click(object sender, EventArgs e)
@@ -40,7 +42,7 @@ namespace TrendTrackApplication.Admin_User_Control
                 DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
                 string productID = selectedRow.Cells["productID"].Value.ToString();
                 string productName = selectedRow.Cells["productName"].Value.ToString();
-                string categoryName = selectedRow.Cells["CategoryName"].Value.ToString(); // Changed from categoryID to categoryName
+                string categoryName = selectedRow.Cells["CategoryName"].Value.ToString(); 
                 decimal costPrice = Convert.ToDecimal(selectedRow.Cells["costPrice"].Value);
                 decimal salePrice = Convert.ToDecimal(selectedRow.Cells["salePrice"].Value);
                 int stock = Convert.ToInt32(selectedRow.Cells["stock"].Value);
@@ -50,6 +52,7 @@ namespace TrendTrackApplication.Admin_User_Control
                 UpdateProductForm updateProductForm = new UpdateProductForm(productID, productName, categoryName, costPrice, salePrice, stock, imagePath, status);
                 updateProductForm.ShowDialog();
                 DisplayAllProductsData();
+                LogActivity($"Updated product with ID: {productID}");
             }
             else
             {
@@ -64,12 +67,25 @@ namespace TrendTrackApplication.Admin_User_Control
                 DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
                 string productID = selectedRow.Cells["productID"].Value.ToString();
 
-                if (MessageBox.Show("Are you sure you want to remove Product ID: " + productID + "?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to remove this record?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     SqlConnection connect = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\visual studio c#\TrendTrackApplication\TrendTrackApplication\TrendDB.mdf"";Integrated Security=True");
                     try
                     {
                         connect.Open();
+
+                        // Archive the product
+                        string archiveQuery = "INSERT INTO Archive (dataID, dataType, archivedData) " +
+                                              "SELECT @productID, 'Product', " +
+                                              "CONVERT(varbinary(MAX), (SELECT * FROM Products WHERE productID = @productID FOR XML PATH('')))";
+
+                        using (SqlCommand archiveCmd = new SqlCommand(archiveQuery, connect))
+                        {
+                            archiveCmd.Parameters.AddWithValue("@productID", productID);
+                            archiveCmd.ExecuteNonQuery();
+                        }
+
+                        // Remove the product
                         string deleteQuery = "DELETE FROM Products WHERE productID = @productID";
 
                         using (SqlCommand deleteCmd = new SqlCommand(deleteQuery, connect))
@@ -78,8 +94,9 @@ namespace TrendTrackApplication.Admin_User_Control
                             deleteCmd.ExecuteNonQuery();
                         }
 
-                        MessageBox.Show("Product removed successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Product removed and archived successfully!", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         DisplayAllProductsData();
+                        LogActivity($"Removed and archived product with ID: {productID}");
                     }
                     catch (Exception ex)
                     {
@@ -144,7 +161,7 @@ namespace TrendTrackApplication.Admin_User_Control
                 dataGridView2.AutoGenerateColumns = true;
 
                 // Set custom column header text
-                dataGridView2.Columns["productID"].HeaderText = "Product ID";
+                dataGridView2.Columns["productID"].HeaderText = "Product Code";
                 dataGridView2.Columns["productName"].HeaderText = "Product Name";
                 dataGridView2.Columns["categoryID"].HeaderText = "Category ID";
                 dataGridView2.Columns["CategoryName"].HeaderText = "Category Name";
@@ -232,7 +249,7 @@ namespace TrendTrackApplication.Admin_User_Control
                 dataGridView2.AutoGenerateColumns = true;
 
                 // Set custom column header text
-                dataGridView2.Columns["productID"].HeaderText = "Product ID";
+                dataGridView2.Columns["productID"].HeaderText = "Product Code";
                 dataGridView2.Columns["productName"].HeaderText = "Product Name";
                 dataGridView2.Columns["categoryID"].HeaderText = "Category ID";
                 dataGridView2.Columns["CategoryName"].HeaderText = "Category Name";
@@ -274,7 +291,7 @@ namespace TrendTrackApplication.Admin_User_Control
                 dataGridView2.AutoGenerateColumns = true;
 
                 // Set custom column header text
-                dataGridView2.Columns["productID"].HeaderText = "Product ID";
+                dataGridView2.Columns["productID"].HeaderText = "Product Code";
                 dataGridView2.Columns["productName"].HeaderText = "Product Name";
                 dataGridView2.Columns["categoryID"].HeaderText = "Category ID";
                 dataGridView2.Columns["CategoryName"].HeaderText = "Category Name";
@@ -288,6 +305,28 @@ namespace TrendTrackApplication.Admin_User_Control
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LogActivity(string action)
+        {
+            string userID = "1"; 
+            string query = "INSERT INTO ActivityLog (userID, action) VALUES (@userID, @action)";
+
+            using (SqlConnection connect = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connect))
+            {
+                command.Parameters.AddWithValue("@userID", userID);
+                command.Parameters.AddWithValue("@action", action);
+
+                try
+                {
+                    connect.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to log activity: " + ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

@@ -363,6 +363,16 @@ namespace TrendTrackApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sale_icon_24 {
+            get {
+                object obj = ResourceManager.GetObject("sale_icon_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap search_699_16 {
             get {
                 object obj = ResourceManager.GetObject("search-699-16", resourceCulture);
@@ -396,6 +406,16 @@ namespace TrendTrackApplication.Properties {
         internal static System.Drawing.Bitmap search_icon_24 {
             get {
                 object obj = ResourceManager.GetObject("search_icon_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap transaction_icon_24 {
+            get {
+                object obj = ResourceManager.GetObject("transaction_icon_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

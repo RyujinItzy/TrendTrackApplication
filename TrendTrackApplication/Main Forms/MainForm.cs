@@ -15,7 +15,7 @@ namespace TrendTrackApplication
         public MainForm()
         {
             InitializeComponent();
-            //ShowPanel(adminDashboard2);
+            ShowPanel(adminDashboard2);
             customizeDesing();
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
         }
@@ -27,31 +27,41 @@ namespace TrendTrackApplication
         private void ShowPanel(UserControl panel)
         {
 
-          /*  adminDashboard2.Visible = false;
-            adminUsers2.Visible = false;
-            adminCategories2.Visible = false;
-            adminProducts2.Visible = false;
-            adminCustomers2.Visible = false;
-            adminActLogAuditTrail1.Visible = false;
+            adminDashboard2.Visible = false;
+            adminUsers1.Visible = false;
+            adminCategories1.Visible = false;
+            adminProduct1.Visible = false;
+            adminCustomers1.Visible = false;
+            adminTransactions1.Visible = false;
+            adminTransactions2.Visible = false;
+            adminActivityLog1.Visible = false;
+            //adminAuditTrail1.Visible = false;
             adminReport1.Visible = false;
             adminArchive1.Visible = false;
 
-            panel.Visible = true;*/
+            panel.Visible = true;
+
+
         }
         private void customizeDesing()
         {
-            panel_inventory_subMenu.Visible = false;
             panel_Monitor_subMenu.Visible = false;
+            panel_sales_subMenu.Visible = false;
+            panel_monitor.Visible = false;
         }
         private void hideSubMenu()
         {
-            if (panel_inventory_subMenu.Visible == true)
+            if (panel_monitor.Visible == true)
             {
-                panel_inventory_subMenu.Visible = false;
+                panel_monitor.Visible = false;
             }
             if (panel_Monitor_subMenu.Visible == true)
             {
                 panel_Monitor_subMenu.Visible = false;
+            }
+            if (panel_sales_subMenu.Visible == true)
+            {
+                panel_sales_subMenu.Visible = false;
             }
         }
         private void showSubMenu(Panel subMenu)
@@ -67,82 +77,87 @@ namespace TrendTrackApplication
             }
         }
 
-
-
-
-        private void btn_logout_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to log out?", "Confirmation Message",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                frmLogin loginForm = new frmLogin();
-                loginForm.Show();
-                this.Hide();
-            }
-        }
-
-
-
-        private void btn_users_Click(object sender, EventArgs e)
-        {
-
-           // ShowPanel(adminUsers2);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-           // ShowPanel(adminCategories2);
-            hideSubMenu();
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-           // ShowPanel(adminReport1);
-
-        }
-
-
-        private void flpContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btn_products_Click(object sender, EventArgs e)
-        {
-          //  ShowPanel(adminProducts2);
-            hideSubMenu();
-        }
-
-        private void btn_customers_Click(object sender, EventArgs e)
-        {
-           // ShowPanel(adminCustomers2);
-        }
-
-        private void btn_auditActLog_Click(object sender, EventArgs e)
-        {
-          //  ShowPanel(adminActLogAuditTrail1);
-            hideSubMenu();
-        }
-
-        private void btn_archive_Click(object sender, EventArgs e)
-        {
-          //  ShowPanel(adminArchive1);
-            hideSubMenu();
-        }
-
         private void btn_dashboard_Click(object sender, EventArgs e)
         {
-          //  ShowPanel(adminDashboard2);
+            ShowPanel(adminDashboard2);
         }
-
-        private void btn_inventory_dropdown_Click(object sender, EventArgs e)
-        {
-            showSubMenu(panel_inventory_subMenu);
-        }
-        private void btn_actlogs_monitor_dropdown_Click(object sender, EventArgs e)
+        //drop down for inventory
+        private void btn_admin_inventory_Click(object sender, EventArgs e)
         {
             showSubMenu(panel_Monitor_subMenu);
         }
+        //drop down for sales
+        private void btn_admin_sales_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panel_sales_subMenu);
+        }
+        //drop down for actmonitor
+        private void btn_admin_actMonitor_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panel_monitor);
+        }
 
+        private void btn_admin_users_Click(object sender, EventArgs e)
+        {
+            ShowPanel(adminUsers1);
+            ;
+        }
+
+        private void btn_admin_categories_Click(object sender, EventArgs e)
+        {
+            ShowPanel(adminCategories1);
+        }
+
+        private void btn_admin_products_Click(object sender, EventArgs e)
+        {
+            ShowPanel(adminProduct1);
+        }
+
+        private void btn_admin_order_Click(object sender, EventArgs e)
+        {
+            ShowPanel(adminTransactions1);
+        }
+
+        private void btn_admin_customers_Click(object sender, EventArgs e)
+        {
+            ShowPanel(adminCustomers1);
+        }
+
+        private void btn_admin_actLog_Click(object sender, EventArgs e)
+        {
+            ShowPanel(adminActivityLog1);
+        }
+
+      /* private void btn_admin_audit_Click(object sender, EventArgs e)
+        {
+            ShowPanel(adminAuditTrail1);
+        }*/
+
+        private void btn_admin_reports_Click(object sender, EventArgs e)
+        {
+            ShowPanel(adminReport1);
+        }
+
+        private void btn_admin_archive_Click(object sender, EventArgs e)
+        {
+            ShowPanel(adminArchive1);
+        }
+
+        private void btn_admin_logout_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to log out?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                Logout();
+            }
+
+        }
+        private void Logout()
+        {
+            
+            frmLogin loginForm = new frmLogin();
+            loginForm.Show();
+        }
     }
 }

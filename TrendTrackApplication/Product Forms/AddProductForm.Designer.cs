@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            comboBox1 = new ComboBox();
+            products_size = new Label();
+            products_description = new RichTextBox();
+            label10 = new Label();
             btn_products_import = new RoundedButton();
             label9 = new Label();
             products_picture = new PictureBox();
@@ -56,6 +60,10 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(products_size);
+            panel1.Controls.Add(products_description);
+            panel1.Controls.Add(label10);
             panel1.Controls.Add(btn_products_import);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(products_picture);
@@ -80,6 +88,45 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(869, 488);
             panel1.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "XS", "Small", "Medium", "Large", "XL" });
+            comboBox1.Location = new Point(29, 391);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(190, 27);
+            comboBox1.TabIndex = 35;
+            // 
+            // products_size
+            // 
+            products_size.AutoSize = true;
+            products_size.Font = new Font("Cambria", 12F);
+            products_size.Location = new Point(29, 369);
+            products_size.Name = "products_size";
+            products_size.Size = new Size(36, 19);
+            products_size.TabIndex = 34;
+            products_size.Text = "Size";
+            // 
+            // products_description
+            // 
+            products_description.Location = new Point(289, 319);
+            products_description.Name = "products_description";
+            products_description.Size = new Size(190, 141);
+            products_description.TabIndex = 31;
+            products_description.Text = "";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Cambria", 12F);
+            label10.Location = new Point(289, 291);
+            label10.Name = "label10";
+            label10.Size = new Size(89, 19);
+            label10.TabIndex = 30;
+            label10.Text = "Description";
             // 
             // btn_products_import
             // 
@@ -217,6 +264,7 @@
             // 
             // products_status_cb
             // 
+            products_status_cb.DropDownStyle = ComboBoxStyle.DropDownList;
             products_status_cb.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             products_status_cb.FormattingEnabled = true;
             products_status_cb.Items.AddRange(new object[] { "Available", "Unavailable" });
@@ -227,6 +275,7 @@
             // 
             // products_category_cb
             // 
+            products_category_cb.DropDownStyle = ComboBoxStyle.DropDownList;
             products_category_cb.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             products_category_cb.FormattingEnabled = true;
             products_category_cb.Location = new Point(29, 241);
@@ -341,5 +390,9 @@
         private PictureBox products_picture;
         private TextBox products_stock;
         private Label label8;
+        private Label label10;
+        private RichTextBox products_description;
+        private Label products_size;
+        private ComboBox comboBox1;
     }
 }

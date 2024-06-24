@@ -104,6 +104,7 @@
             // 
             // users_status
             // 
+            users_status.DropDownStyle = ComboBoxStyle.DropDownList;
             users_status.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             users_status.FormattingEnabled = true;
             users_status.Items.AddRange(new object[] { "Active", "Inactive", "Waiting for Approval" });
@@ -114,6 +115,7 @@
             // 
             // users_role
             // 
+            users_role.DropDownStyle = ComboBoxStyle.DropDownList;
             users_role.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             users_role.FormattingEnabled = true;
             users_role.Items.AddRange(new object[] { "Admin", "Cashier" });

@@ -140,7 +140,7 @@ namespace TrendTrackApplication
             {
                 int categoryID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Category ID"].Value);
 
-                DialogResult result = MessageBox.Show("Are you sure you want to remove Category ID: " + categoryID + "?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Are you sure you want to remove this record?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {

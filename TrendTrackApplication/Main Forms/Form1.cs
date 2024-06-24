@@ -1,6 +1,8 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Drawing;
 
 namespace TrendTrackApplication
 {
@@ -27,13 +29,13 @@ namespace TrendTrackApplication
 
         }
 
-        private void label_register_click_Click(object sender, EventArgs e)
+    /*    private void label_register_click_Click(object sender, EventArgs e)
         {
             frmRegister regForm = new frmRegister();
             regForm.Show();
 
             this.Hide();
-        }
+        }*/
 
         public bool checkConnection()
         {
@@ -137,5 +139,6 @@ namespace TrendTrackApplication
                 }
             }
         }
+
     }
 }

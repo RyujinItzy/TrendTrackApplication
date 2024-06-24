@@ -24,7 +24,7 @@ namespace TrendTrackApplication
             {
                 int userID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["UserID"].Value);
 
-                DialogResult result = MessageBox.Show("Are you sure you want to remove User ID: " + userID + "?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Are you sure you want to remove this record?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (result == DialogResult.Yes)
                 {

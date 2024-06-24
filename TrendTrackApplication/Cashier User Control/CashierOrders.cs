@@ -33,7 +33,7 @@ namespace TrendTrackApplication
                 ProductsData apData = new ProductsData();
                 //List<Product> listData = apData.GetAvailableProducts();
 
-               // dataGridView1.DataSource = listData;
+                // dataGridView1.DataSource = listData;
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace TrendTrackApplication
                             while (reader.Read())
                             {
                                 string item = reader.GetString(1);
-                                order_category.Items.Add(item);
+                                order_product_category.Items.Add(item);
                             }
                         }
                     }
@@ -87,11 +87,11 @@ namespace TrendTrackApplication
         {
             order_prodID.SelectedIndex = -1;
             order_prodID.Items.Clear();
-            order_name.Text = "";
-            order_price.Text = "";
+            order_productName.Text = "";
+            order_productPrice.Text = "";
 
 
-            string selectedValue = order_category.SelectedItem as string;
+            string selectedValue = order_product_category.SelectedItem as string;
 
             if (selectedValue != null)
             {
@@ -132,9 +132,9 @@ namespace TrendTrackApplication
         {
             string selectedValue = order_prodID.SelectedItem as string;
 
-            if(checkConnection())
+            if (checkConnection())
             {
-                if(selectedValue != null)
+                if (selectedValue != null)
                 {
                     try
                     {
@@ -153,23 +153,28 @@ namespace TrendTrackApplication
                                     string prodName = reader["productName"].ToString();
                                     decimal prodPrice = Convert.ToDecimal(reader["price"]);
 
-                                    order_name.Text = prodName;
-                                    order_price.Text = prodPrice.ToString("0.00");
+                                    order_productName.Text = prodName;
+                                    order_productPrice.Text = prodPrice.ToString("0.00");
 
                                 }
                             }
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("Failed connection: " + ex, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     finally
                     {
-                        connect.Close() ;
+                        connect.Close();
                     }
                 }
             }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

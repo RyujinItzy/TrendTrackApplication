@@ -28,27 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             label1 = new Label();
             btn_notification = new RoundedButton();
-            dtp_startDate = new DateTimePicker();
-            dtp_endDate = new DateTimePicker();
-            btn_custom = new Button();
-            btn_today = new Button();
-            btn_last7days = new Button();
-            btn_last30days = new Button();
-            btn_ok_customdate = new Button();
             panel1 = new Panel();
             lbl_NumberOfOrders = new Label();
             label2 = new Label();
@@ -75,7 +71,7 @@
             panel5 = new Panel();
             dgv_Understock = new DataGridView();
             label10 = new Label();
-            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            chart_profitChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -84,7 +80,7 @@
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Understock).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chart_profitChart).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -115,74 +111,6 @@
             btn_notification.TabIndex = 1;
             btn_notification.TextColor = Color.White;
             btn_notification.UseVisualStyleBackColor = false;
-            // 
-            // dtp_startDate
-            // 
-            dtp_startDate.CustomFormat = "MMM dd, yyyy";
-            dtp_startDate.Format = DateTimePickerFormat.Custom;
-            dtp_startDate.Location = new Point(169, 24);
-            dtp_startDate.Name = "dtp_startDate";
-            dtp_startDate.Size = new Size(110, 23);
-            dtp_startDate.TabIndex = 2;
-            // 
-            // dtp_endDate
-            // 
-            dtp_endDate.CustomFormat = "MMM dd, yyyy";
-            dtp_endDate.Format = DateTimePickerFormat.Custom;
-            dtp_endDate.Location = new Point(285, 24);
-            dtp_endDate.Name = "dtp_endDate";
-            dtp_endDate.Size = new Size(110, 23);
-            dtp_endDate.TabIndex = 3;
-            // 
-            // btn_custom
-            // 
-            btn_custom.Font = new Font("Cambria", 9F);
-            btn_custom.Location = new Point(462, 17);
-            btn_custom.Name = "btn_custom";
-            btn_custom.Size = new Size(120, 30);
-            btn_custom.TabIndex = 4;
-            btn_custom.Text = "Custom";
-            btn_custom.UseVisualStyleBackColor = true;
-            // 
-            // btn_today
-            // 
-            btn_today.Font = new Font("Cambria", 9F);
-            btn_today.Location = new Point(588, 17);
-            btn_today.Name = "btn_today";
-            btn_today.Size = new Size(120, 30);
-            btn_today.TabIndex = 5;
-            btn_today.Text = "Today";
-            btn_today.UseVisualStyleBackColor = true;
-            // 
-            // btn_last7days
-            // 
-            btn_last7days.Font = new Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_last7days.Location = new Point(714, 17);
-            btn_last7days.Name = "btn_last7days";
-            btn_last7days.Size = new Size(120, 30);
-            btn_last7days.TabIndex = 6;
-            btn_last7days.Text = "Last 7 days";
-            btn_last7days.UseVisualStyleBackColor = true;
-            // 
-            // btn_last30days
-            // 
-            btn_last30days.Font = new Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_last30days.Location = new Point(840, 17);
-            btn_last30days.Name = "btn_last30days";
-            btn_last30days.Size = new Size(120, 30);
-            btn_last30days.TabIndex = 7;
-            btn_last30days.Text = "Last 30 days";
-            btn_last30days.UseVisualStyleBackColor = true;
-            // 
-            // btn_ok_customdate
-            // 
-            btn_ok_customdate.Font = new Font("Cambria", 9F);
-            btn_ok_customdate.Location = new Point(417, 17);
-            btn_ok_customdate.Name = "btn_ok_customdate";
-            btn_ok_customdate.Size = new Size(39, 30);
-            btn_ok_customdate.TabIndex = 8;
-            btn_ok_customdate.Text = "Ok";
-            btn_ok_customdate.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -276,50 +204,50 @@
             // 
             // chart_grossRevenue
             // 
-            chartArea1.Name = "ChartArea1";
-            chart_grossRevenue.ChartAreas.Add(chartArea1);
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend1.Name = "Legend1";
-            chart_grossRevenue.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            chart_grossRevenue.ChartAreas.Add(chartArea4);
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend4.Name = "Legend1";
+            chart_grossRevenue.Legends.Add(legend4);
             chart_grossRevenue.Location = new Point(3, 122);
             chart_grossRevenue.Name = "chart_grossRevenue";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            chart_grossRevenue.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            chart_grossRevenue.Series.Add(series4);
             chart_grossRevenue.Size = new Size(705, 293);
             chart_grossRevenue.TabIndex = 12;
             chart_grossRevenue.Text = "chart1";
-            title1.Alignment = ContentAlignment.TopLeft;
-            title1.Font = new Font("Cambria", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            title1.Name = "Title1";
-            title1.Text = "Gross Revenue";
-            chart_grossRevenue.Titles.Add(title1);
+            title4.Alignment = ContentAlignment.TopLeft;
+            title4.Font = new Font("Cambria", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            title4.Name = "Title1";
+            title4.Text = "Gross Revenue";
+            chart_grossRevenue.Titles.Add(title4);
             // 
             // chart_topProducts
             // 
-            chartArea2.Name = "ChartArea1";
-            chart_topProducts.ChartAreas.Add(chartArea2);
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.Name = "Legend1";
-            chart_topProducts.Legends.Add(legend2);
+            chartArea5.Name = "ChartArea1";
+            chart_topProducts.ChartAreas.Add(chartArea5);
+            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend5.Name = "Legend1";
+            chart_topProducts.Legends.Add(legend5);
             chart_topProducts.Location = new Point(714, 122);
             chart_topProducts.Name = "chart_topProducts";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            series2.LabelForeColor = Color.White;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chart_topProducts.Series.Add(series2);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series5.Font = new Font("Cambria", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            series5.LabelForeColor = Color.White;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            chart_topProducts.Series.Add(series5);
             chart_topProducts.Size = new Size(327, 317);
             chart_topProducts.TabIndex = 13;
             chart_topProducts.Text = "chart2";
-            title2.Alignment = ContentAlignment.TopLeft;
-            title2.Font = new Font("Cambria", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            title2.Name = "Title1";
-            title2.Text = "Top 5 Products";
-            chart_topProducts.Titles.Add(title2);
+            title5.Alignment = ContentAlignment.TopLeft;
+            title5.Font = new Font("Cambria", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            title5.Name = "Title1";
+            title5.Text = "Top 5 Products";
+            chart_topProducts.Titles.Add(title5);
             // 
             // panel4
             // 
@@ -462,11 +390,51 @@
             // 
             // dgv_Understock
             // 
+            dgv_Understock.AllowUserToAddRows = false;
+            dgv_Understock.AllowUserToDeleteRows = false;
+            dgv_Understock.AllowUserToResizeColumns = false;
+            dgv_Understock.AllowUserToResizeRows = false;
             dgv_Understock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_Understock.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Understock.Location = new Point(14, 30);
+            dgv_Understock.BackgroundColor = Color.White;
+            dgv_Understock.BorderStyle = BorderStyle.None;
+            dgv_Understock.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgv_Understock.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.SteelBlue;
+            dataGridViewCellStyle4.Font = new Font("Cambria", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv_Understock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgv_Understock.ColumnHeadersHeight = 35;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Cambria", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgv_Understock.DefaultCellStyle = dataGridViewCellStyle5;
+            dgv_Understock.EnableHeadersVisualStyles = false;
+            dgv_Understock.GridColor = Color.LightGray;
+            dgv_Understock.Location = new Point(14, 40);
+            dgv_Understock.MultiSelect = false;
             dgv_Understock.Name = "dgv_Understock";
-            dgv_Understock.Size = new Size(468, 313);
+            dgv_Understock.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgv_Understock.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgv_Understock.RowHeadersVisible = false;
+            dgv_Understock.RowHeadersWidth = 25;
+            dgv_Understock.ScrollBars = ScrollBars.None;
+            dgv_Understock.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_Understock.Size = new Size(463, 303);
             dgv_Understock.TabIndex = 3;
             // 
             // label10
@@ -479,33 +447,33 @@
             label10.TabIndex = 2;
             label10.Text = "Products Understock";
             // 
-            // chart1
+            // chart_profitChart
             // 
-            chartArea3.Name = "ChartArea1";
-            chart1.ChartAreas.Add(chartArea3);
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend3.Name = "Legend1";
-            chart1.Legends.Add(legend3);
-            chart1.Location = new Point(714, 445);
-            chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            chart1.Series.Add(series3);
-            chart1.Size = new Size(327, 319);
-            chart1.TabIndex = 14;
-            chart1.Text = "chart1";
-            title3.Alignment = ContentAlignment.TopLeft;
-            title3.Font = new Font("Cambria", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            title3.Name = "Title1";
-            title3.Text = "Profit ";
-            chart1.Titles.Add(title3);
+            chartArea6.Name = "ChartArea1";
+            chart_profitChart.ChartAreas.Add(chartArea6);
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend6.Name = "Legend1";
+            chart_profitChart.Legends.Add(legend6);
+            chart_profitChart.Location = new Point(714, 445);
+            chart_profitChart.Name = "chart_profitChart";
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            chart_profitChart.Series.Add(series6);
+            chart_profitChart.Size = new Size(327, 319);
+            chart_profitChart.TabIndex = 14;
+            chart_profitChart.Text = "chart1";
+            title6.Alignment = ContentAlignment.TopLeft;
+            title6.Font = new Font("Cambria", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            title6.Name = "Title1";
+            title6.Text = "Profit ";
+            chart_profitChart.Titles.Add(title6);
             // 
             // AdminDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(chart1);
+            Controls.Add(chart_profitChart);
             Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(chart_topProducts);
@@ -513,13 +481,6 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(btn_ok_customdate);
-            Controls.Add(btn_last30days);
-            Controls.Add(btn_last7days);
-            Controls.Add(btn_today);
-            Controls.Add(btn_custom);
-            Controls.Add(dtp_endDate);
-            Controls.Add(dtp_startDate);
             Controls.Add(btn_notification);
             Controls.Add(label1);
             Name = "AdminDashboard";
@@ -537,7 +498,7 @@
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Understock).EndInit();
-            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chart_profitChart).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -546,13 +507,6 @@
 
         private Label label1;
         private RoundedButton btn_notification;
-        private DateTimePicker dtp_startDate;
-        private DateTimePicker dtp_endDate;
-        private Button btn_custom;
-        private Button btn_today;
-        private Button btn_last7days;
-        private Button btn_last30days;
-        private Button btn_ok_customdate;
         private Panel panel1;
         private Label lbl_NumberOfOrders;
         private Label label2;
@@ -572,13 +526,13 @@
         private Label label8;
         private Panel panel5;
         private Label label10;
-        private DataGridView dgv_Understock;
         private Label lbl_todaysCustomer;
         private Label label9;
         private Label lbl_numberOfProducts;
         private Label label12;
         private Label lbl_todaysProfit;
         private Label label13;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_profitChart;
+        private DataGridView dgv_Understock;
     }
 }

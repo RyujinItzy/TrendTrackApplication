@@ -39,8 +39,6 @@
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
-            label_register_click = new Label();
-            label4 = new Label();
             label1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -62,8 +60,6 @@
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(label_register_click);
-            panel1.Controls.Add(label4);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(45, 40);
             panel1.Name = "panel1";
@@ -182,28 +178,6 @@
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
             // 
-            // label_register_click
-            // 
-            label_register_click.AutoSize = true;
-            label_register_click.Font = new Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_register_click.ForeColor = Color.RoyalBlue;
-            label_register_click.Location = new Point(553, 337);
-            label_register_click.Name = "label_register_click";
-            label_register_click.Size = new Size(79, 14);
-            label_register_click.TabIndex = 6;
-            label_register_click.Text = "Register here!";
-            label_register_click.Click += label_register_click_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Cambria", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(459, 337);
-            label4.Name = "label4";
-            label4.Size = new Size(88, 14);
-            label4.TabIndex = 5;
-            label4.Text = "No account yet?";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -239,8 +213,6 @@
 
         private Panel panel1;
         private PictureBox pictureBox1;
-        private Label label_register_click;
-        private Label label4;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private CheckBox cb_login_showPassword;
